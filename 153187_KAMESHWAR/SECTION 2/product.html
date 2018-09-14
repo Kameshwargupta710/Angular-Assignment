@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Product Details</title>
+    </head>
+    <body>
+        <script>
+
+
+
+        class Inventory{                                             //Inventory class creation with methods
+            getProducIn(){
+                console.log("Product Inside");
+            }
+            getProductOut(){
+                console.log("Product Out");
+            }
+        }
+
+
+        let lg=new Inventory();                                        //Inventory object creation
+    
+
+        class Product{                                                 //Product class creation
+                constructor(prodId,prodName,prodPrice,prodDescription){
+                this.prodId=prodId;
+                this.prodName=prodName;
+                this.prodPrice=prodPrice;
+                this.prodDescription=prodDescription;  
+                }
+        }
+        let pd1 = new Product(1002,"Mobile",19812,"Mobile");             //Product object creation
+        let pd2 = new Product(1003,"Rice",66,"Grocery");
+        let pd3 = new Product(1001,"Pen",32,"Stationary");            
+        let pd4 = new Product(1000,"Pencil",8,"Stationary");
+
+        console.log("*******************Products in the Map Object Before Sorted****************************");
+
+        var mapp=new Map();     //Map object creation
+
+        mapp.set(1,pd1);
+        mapp.set(2,pd2);
+        mapp.set(3,pd3);
+        mapp.set(4,pd4);
+
+        var k;
+        for(k=0;k<=mapp.size;k++){                                       //Map key and value display
+            console.log(mapp.get(k));
+        }
+
+
+        console.log("*******************Sorted Products according to ProductId*******************************");
+         
+        var temp;                                                         //Sorting the product details using Id
+
+        var pArray = new Array(pd1,pd2,pd3,pd4);
+            for(var i=0;i<pArray.length;i++)
+            {
+                for(var j=0;j<pArray.length;j++)
+                {
+                    if(pArray[i].prodId<pArray[j].prodId)
+                    {
+                        var temp=pArray[i];
+                        pArray[i]=pArray[j];
+                        pArray[j]=temp;
+                    }
+                }
+            }
+        var disp;
+        for(disp of pArray){
+            console.log(disp);
+        }
+
+
+         console.log("*******************After deleting the product as mentioned*********************");
+
+         var spd = new Set();
+            spd.add(pd1);
+            spd.add(pd2);
+            spd.add(pd3);
+            spd.add(pd4);
+
+        
+            var pddel = prompt("Enter employee id to delete");
+            var flag=1;
+            for(var pdmm of spd){
+                if(pdmm.prodId==pddel){
+                    spd.delete(pdmm);
+                    alert(pddel,"deletd");
+                    var flag=0;
+                    break;
+                }
+                
+            }
+            if(flag!=0){                                        //Error message if productId not found
+                console.log("Employee Id:",pddel,"not found");
+            }
+            for(var p of spd)  
+                console.log(p);   
+
+
+
+        console.log("*******************Inheritance using __proto__*************************************");
+
+         pd1.__proto__=lg;                                           //Inheritance using __proto__
+
+         pd1.getProducIn();
+         pd1.getProductOut();
+
+         console.log("*******************Inheritance using Object.Create*********************************");
+
+         mapp = Object.create(lg);                                   //Inheritance using object.create
+
+         mapp.getProducIn();
+         mapp.getProductOut();
+		 
+		 
+		Product.prototype.getProducIn=function(){
+                console.log("Product inside after override")
+            }
+
+        Product.prototype.getProductOut=function(){
+                console.log("Product outside after override")
+            }
+			
+		pd1.getProducIn();
+        pd1.getProductOut();
+
+
+
+         
+        //For method override refer the Methodoveride.html file
+
+        </script> 
+    </body>
+</html>
+
+

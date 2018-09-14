@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> window example </title>
+</head>
+<script>
+function calculatePayment()
+{
+var Aloan=document.getElementById("Aloan").value;
+var Percentage=document.getElementById("Percentage").value;
+var Period=document.getElementById("Period").value;
+
+if (isNaN(Aloan) || Aloan < 0 || Aloan > 1500001) {
+        alert("Loan amount should be 1 lacs to 15 lacs");
+		return 0;
+    }
+
+if (isNaN(Percentage) || Percentage < 1 ) {
+        alert("Percentage Should be greater than 0");
+		return 0;
+    }
+
+if (isNaN(Period) || Period < 7 || Period > 15) {
+        alert("Period should be between 7 and 15 yrs");
+		return 0;
+    }
+	
+
+var simpleinterest=(Aloan*Percentage*Period)/100;
+
+var totalamount=simpleinterest+parseInt(Aloan);
+
+var tperiodmonth=12*Period;
+
+var payment=(totalamount)/tperiodmonth;
+
+document.getElementById("Mpayment").value = payment;
+
+document.getElementById("Tpayment").value = totalamount;
+
+document.getElementById("Tinterest").value =simpleinterest;
+
+	
+
+}
+
+
+</script>
+<body>
+<strong>Enter Loan Information:</strong><br/><br/>
+<form id="frmlab">
+<table>
+<tr>
+<td>1)Amount of the loan(any currency)</td>
+<td><input type="text" name="Aloan" id="Aloan" value=""></td>
+</tr>
+
+<tr>
+<td>2)Annual percentage rate of interest:</td>
+<td><input type="text" name="Percentage" id="Percentage" value=""></td>
+</tr>
+
+
+<tr>
+<td>3)Repayment period in years:</td>
+<td><input type="text" name="Period" id="Period" value=""></td>
+</tr>
+</table>
+<input type="button" name="CPayment" id="Cpayment" value="Compute" onclick="calculatePayment()"/>
+<br/>
+<table>
+<tr>
+<strong>Payment Information:</strong>
+</tr>
+<tr>
+<td>4)Your monthly payment will be</td>
+<td><input type="text" name="Mpayment" id="Mpayment" value=""></td>
+</tr>
+
+<tr>
+<td>5)Your total payment will be</td>
+<td><input type="text" name="Tpayment" id="Tpayment" value=""></td>
+</tr>
+
+
+<tr>
+<td>6)Your total interest payments will be:</td>
+<td><input type="text" name="Tinterest" id="Tinterest" value=""></td>
+</tr>
+</table>
+
+
+
+
+</form>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title> Product Deatils 7.2</title>
+
+<script>
+
+function populateProducts(){
+var categoryvalue=document.getElementById("dpCategory").value;
+console.log(categoryvalue);
+var productToPopulate = document.getElementById("dpProduct");
+
+var ElectronicsProducts= new Array("Television","Laptop","Phone");
+var GlossaryProducts= new Array("Soap","Powder");
+
+if(categoryvalue == "Electronics"){
+clearDropDown();
+for(var i=0;i<ElectronicsProducts.length;i++){
+productToPopulate.options[i] = new Option(ElectronicsProducts[i], ElectronicsProducts[i]);
+}
+}
+
+if(categoryvalue == "Glossary"){
+clearDropDown();
+for(var i=0;i<GlossaryProducts.length;i++){
+productToPopulate.options[i] = new Option(GlossaryProducts[i], GlossaryProducts[i]);
+} 
+}
+}
+
+/*
+
+function calculateTotalAmount(){
+var product = document.getElementById("dpProduct").value;
+var productQty = Number(document.getElementById("txtQuantity").value);
+console.log(product);
+if(product=="Television"){
+document.getElementById("txtTotal").value = productQty*20000;
+}
+
+if(product=="Laptop"){
+document.getElementById("txtTotal").value = productQty*30000;
+}
+
+if(product=="Phone"){
+document.getElementById("txtTotal").value = productQty*10000;
+}
+
+if(product=="Soap"){
+document.getElementById("txtTotal").value = productQty*40;
+}
+
+if(product=="Powder"){
+document.getElementById("txtTotal").value = productQty*30;
+}
+}
+
+
+function ShowPopUp(){
+var product =document.getElementById("dpProduct").value;
+var productQty = Number(document.getElementById("txtQuantity").value);
+console.log(product);
+if(product =="Television"){
+alert("Total "+product+" selected = "+productQty+" and Total price = "+productQty*20000);
+newWindow(product, productQty,productQty*20000);
+}
+
+if(product =="Laptop"){
+alert("Total "+product+" selected = "+productQty+" and Total price = "+productQty*30000);
+newWindow(product, productQty,productQty*30000);
+}
+
+if(product =="Phone"){
+alert("Total "+product+" selected = "+productQty+" and Total price = "+productQty*10000);
+newWindow(product, productQty,productQty*10000);
+}
+
+if(product =="Soap"){
+alert("Total "+product+" selected = "+productQty+" and Total price = "+productQty*40);
+newWindow(product, productQty,productQty*40);
+}
+
+if(product =="Powder"){
+alert("Total "+product+" selected = "+productQty+" and Total price = "+productQty*90);
+newWindow(product, productQty,productQty*90);
+}
+}
+
+function newWindow(product,productQty,price){
+var total = productQty*price;
+var nw =window.open("","BillAmount","width=700,height=500");
+nw.document.write("</h1>Amount");
+nw.document.write("<body><table border='1'><tr><td>Product</td><td>Quantity</td><td>Total</td></tr>");
+nw.document.write("<tr><td>"+product+"</td><td>"+productQty+"</td><td>"+price+"</td></tr>");
+nw.document.write("</table></body>");
+}
+
+function clearForm(){
+document.getElementById("txtQuantity").value = "";
+document.getElementById("txtTotal").value = "";
+document.getElementById("txtCategory").value = "";
+clearDropDown();
+}
+
+function clearDropDown(){
+var productToPopulate = document.getElementById("dpProduct");
+for(var i=0; i<productToPopulate.options.length;i++){
+productToPopulate.options.remove(i);
+}
+productToPopulate.options.remove(0);
+}
+*/
+
+</script>
+
+
+
+<style>
+body{
+font-size:30px;
+}
+</style>
+
+
+</head>
+
+
+
+
+<body>
+<h1><strong style="color:white"><center/>Product Details</h1></strong>
+<center><table style="border: 10px solid white">
+
+
+<tr>
+<td>Category:</td>
+<td><select name="dpCategory" id="dpCategory" onchange="populateProducts()";>
+	<option value="">Select your choice</option>
+	<option value="Electronics">Electronics</option>
+	<option value="Glossary">Glossary</option>
+	</select>
+</td>
+</tr>
+
+<tr>
+<td>Product:</td>
+<td><select name="dpProduct" id="dpProduct">
+	</select>
+</td>
+</tr>
+
+<tr>
+<td>Quantity:</td>
+<td><input type="number" name="txtQuantity" id="txtQuantity" onchange="calculateTotalAmount()"></td>
+</tr>
+
+
+<tr>
+<td>Total Price:</td>
+<td><input type="number" name="txtTotal" id="txtTotal" disabled></td>
+</tr>
+
+<tr>
+<td><input type="button" name="btnSubmit" value="Submit" onclick="ShowPopUp()"/></td>
+<td><input type="reset" name="btnReset" value="Clear" onclick="clearForm()"/></td>
+</tr>
+</table>
+</center>
+</body>
+</html>

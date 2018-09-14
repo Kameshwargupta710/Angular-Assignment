@@ -1,0 +1,23 @@
+@media (max-width: @screen-xs)  {
+		.fs {
+			font-size:10pt;
+		}
+	}
+	
+	@media (max-width: @screen-sm)  {
+		.fs {
+			font-size:15pt;
+		}
+	}
+
+	@media (max-width: @screen-md)  {
+		.fs {
+			font-size:20pt;
+		}
+	}
+	
+	@media (max-width: @screen-lg)  {
+		.fs {
+			font-size:25px;
+		}
+	}

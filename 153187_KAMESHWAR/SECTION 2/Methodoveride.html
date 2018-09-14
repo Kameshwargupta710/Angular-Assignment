@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Product Details</title>
+    </head>
+    <body>
+        <script>
+
+//It is not possible to override method using __proto__ and object.create inheritance hence i created this file
+
+class Inventory{                                          //Inventory class creation with methods
+            getProducIn(){
+                console.log("Product Inside");
+            }
+            getProductOut(){
+                console.log("Product Out");
+            }
+        }
+
+
+let lg=new Inventory();                                    //Inventory object creation
+
+class Product extends Inventory{                           //Product class creation
+                constructor(prodId,prodName,prodPrice,prodDescription){
+                super();
+                this.prodId=prodId;
+                this.prodName=prodName;
+                this.prodPrice=prodPrice;
+                this.prodDescription=prodDescription;  
+                }
+             }
+
+            let pd1 = new Product(1002,"Mobile",19812,"Mobile");
+            let pd2 = new Product(1003,"Rice",66,"Grocery");
+            let pd3 = new Product(1001,"Pen",32,"Stationary");            
+            let pd4 = new Product(1000,"Pencil",8,"Stationary");
+			
+			pd1.getProducIn();
+            pd1.getProductOut();
+
+
+            Product.prototype.getProducIn=function(){
+                console.log("Product inside after override")
+            }
+
+            Product.prototype.getProductOut=function(){
+                console.log("Product outside after override")
+            }
+
+
+            pd1.getProducIn();
+            pd1.getProductOut();
+
+        </script> 
+    </body>
+</html>
+
+

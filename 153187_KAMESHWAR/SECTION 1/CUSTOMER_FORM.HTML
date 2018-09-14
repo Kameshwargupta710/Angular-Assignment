@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+    <head>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<style>           
+        textarea{
+        overflow-y:scroll;
+        }
+		body{
+		background-color:peru;
+		}
+		h1{
+		text-align:center;
+        background-color:Orange;
+		}
+		#stnbt{
+		text-align:center;
+		}
+		</style>
+        <script>
+
+				function showpreview(){
+
+					var selectstate=document.getElementById("selstate").value; //Reteriving state
+					if(selectstate == "KA"){            //New Window pop up
+                        var nw =window.open("","Code And Location","width=700,height=500");
+                        nw.document.write("<body><b>Postal Code</b>:560000<br><b>Store Locaion</b>:Bangalore</body>");
+        
+					}
+                    if(selectstate == "MAS"){
+                        var nw =window.open("","Code And Location","width=700,height=500");
+                        nw.document.write("<body><b>Postal Code</b>:600000<br><b>Store Locaion</b>:Chennai</body>");
+        
+					}
+                    if(selectstate == "KL"){
+                        var nw =window.open("","Code And Location","width=700,height=500");
+                        nw.document.write("<body><b>Postal Code</b>:680000<br><b>Store Locaion</b>:Thiruvananthapuram</body>");
+        
+					}
+                    if(selectstate == "AP"){
+                        var nw =window.open("","Code And Location","width=700,height=500");
+                        nw.document.write("<body><b>Postal Code</b>:500000<br><b>Store Locaion</b>:Hyderabad</body>");
+        
+					}
+                }
+
+                function showall(){     //Collecting all data using Id and displaying in the new window
+                    var selectname=document.getElementById("txtname").value;
+                    var selectadd=document.getElementById("txtaddress").value;
+                    var selectstate=document.getElementById("selstate").value;
+                    var selectphone=document.getElementById("txtnphone").value;
+                    var selectem=document.getElementById("em").value;
+                    var selectrd=document.getElementById("rd").value;
+                    var selectdat=document.getElementById("dat").value;
+                    var selectinc=document.getElementById("inc").value;
+
+                    var nwd =window.open("","Show All","width=700,height=500");
+                    nwd.document.write("<body><b>Name</b>:"+selectname+"<br><b>Address</b>:"+selectadd+"<br><b>State</b>:"+selectstate+"<br><b>Phone</b>:"+selectphone+"<br><b>Email</b>:"+selectem+"<br><b>Preferred Contact Way</b>:"+selectrd+"<br><b>Date</b>:"+selectdat+"<br><b>Incident</b>:"+selectinc+"</body>");
+        
+
+                }
+		</script>		
+	</head>
+    <body>
+        <div class="main">
+            <div class="container">
+				<div class="jumbotron">
+					<h1>Customer Incident Form</h1>
+						<div class="container" style="width:90%">
+                            <p>We appreciate your business and want to hear about your experience during your visit.</p> 
+							<form class="form-horizontal" method="" action="" onsubmit="showall()">
+								<div class="form-group">
+									<label class="control-label">Name</label>
+									<input class="form-control" type="text" id="txtname" name="txtname" pattern="[A-Za-z]{1,20}" title="Only 20 character is allowed" required>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Address</label>
+									<textarea rows="5" cols="30" id="txtaddress"required></textarea>
+								</div>
+								<div class="form-group">
+									<label class="control-label">State</label>
+									<select class="form-control" id="selstate" required>
+										<option value="">Select State</option>
+										<option value="KA">Karnataka-KA</option>
+										<option value="MAS">Tamilnadu-MAS</option>
+                                        <option value="KL">Kerala-KL</option>
+										<option value="AP">Andrapradesh-AP</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Phone</label>
+									<input class="form-control" type="text" id="txtnphone" name="phonenum" pattern="[0-9]{10}" title="10 digit number is allowed" required>						
+							    </div>
+								<div class="form-group">
+									<label class="control-label">Email</label>
+									<input class="form-control" type="email" id="em" required>
+								</div>
+								<div class="form-group">
+									<label class="control-label">Preferred way to contact you?</label>
+                                    <input type="radio" name="contactu" id="rd" value="Email" required><b>E-mail
+                                    <input type="radio" name="contactu" id="rd" value="Phone"><b>Phone
+                                    <input type="radio" name="contactu" id="rd" value="Postal Mail"><b>Postal Mail
+								</div>
+								<div class="form-group">
+									<label class="control-label">Date of Visit</label>
+									<input class="form-control" type="date" id="dat" required>
+								</div>
+                                <div class="form-group">
+									<label class="control-label">Please describe the incident</label>
+									<textarea rows="5" cols="30" id="inc" required></textarea>
+								</div>
+								<div id="stnbt">
+									<input class="btn btn-primary" type="submit" value="Submit" name="submit" >
+                                    <input class="btn btn-primary" type="button" value="Preview" onclick="showpreview()">
+								</div>
+						</form>
+
+					</div>
+				</div>
+    </body>
+</html>

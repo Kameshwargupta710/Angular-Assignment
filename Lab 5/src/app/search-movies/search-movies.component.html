@@ -1,0 +1,38 @@
+<form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <br/>
+    <h3 class="panel-title">Search Movie 
+      <select id="category" formControlName="mcategory" class="form-control" required>
+        <option value="">Select Genre</option>
+        <option value="Drama">Drama</option>
+        <option value="Fiction">Fiction</option>
+        <option value="Satire">Satire</option>
+      </select>
+    </h3>
+  </div> 
+  <div class="panel-body">
+
+    <span class="nameV">
+      <label *ngIf="searchForm.controls['mcategory'].touched && searchForm.controls['mcategory'].value===''">
+        Select Genre!!!<br>
+      </label>
+    </span> 
+
+  </div>
+  <div class="panel-footer" class="form-group">
+    <button type="submit"  class="btn btn-primary">Search Movie</button>
+  </div>
+</div>
+</form>
+
+<table border="2">
+  <tr>
+  <th>Movie Name</th>
+  <th>Rating</th>
+  </tr>
+  <tr *ngFor="let movie of shows">
+    <td>{{movie.mname}}</td>
+    <td>{{movie.mrating}}</td>
+  </tr>
+</table>

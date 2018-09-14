@@ -1,0 +1,22 @@
+[
+    {
+        "mname":"HomeAlone",
+        "mcategory":"Drama",
+        "mrating":"4"
+    },
+    {
+        "mname":"HorrorSeries",
+        "mcategory":"Drama",
+        "mrating":"4"
+    },
+    {
+        "mname":"IronMan",
+        "mcategory":"Fiction",
+        "mrating":"4"
+    },
+    {
+        "mname":"Avengers",
+        "mcategory":"Fiction",
+        "mrating":"4"
+    }
+]

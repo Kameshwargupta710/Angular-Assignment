@@ -1,0 +1,59 @@
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <br/>
+    <h3 class="panel-title">Add Movie </h3>
+  </div> 
+  <div class="panel-body">
+    
+    <div class="form-group">
+      <label>Movie Name</label>
+      <input  type="text" class="form-control" formControlName="mname"  title="Only characters and number are allowed" required>
+        {{mnamerequired}}
+    </div>
+    <span class="nameV">
+      <label *ngIf="movieForm.controls['mname'].dirty && !movieForm.controls['mname'].valid">
+        Movie name is should be alphanumeric!!!<br>
+      </label>
+      <label *ngIf="movieForm.controls['mname'].touched && movieForm.controls['mname'].value===''">
+        Movie name is required!!!<br>
+      </label>
+    </span>
+
+    <div class="form-group">
+      <label>Give Rating</label>
+      <input   type="number" class="form-control" min=0 max=5 formControlName="mrating"  title="Only numbers are allowed" required>
+      {{mratingrequired}}
+    </div>
+    <span class="nameV">
+      <label *ngIf="movieForm.controls['mrating'].dirty && !movieForm.controls['mrating'].valid">
+       Rating needs to be a number: eg:2.5. Rating is on Scale 1-5<br>
+      </label>
+      <label *ngIf="movieForm.controls['mrating'].touched && movieForm.controls['mrating'].value===''">
+        Rating is required!!!<br>
+      </label>
+    </span> 
+
+
+    <div class="form-group">
+      <label>Select Genre</label>
+      <select id="category" formControlName="mcategory" class="form-control" required>
+        <option value="">Select Genre</option>
+        <option value="Drama">Drama</option>
+        <option value="Fiction">Fiction</option>
+        <option value="Satire">Satire</option>
+      </select>
+      {{mcategoryrequired}}
+    </div>
+    <span class="nameV">
+      <label *ngIf="movieForm.controls['mcategory'].touched && movieForm.controls['mcategory'].value===''">
+        Select Genre!!!<br>
+      </label>
+    </span> 
+
+  </div>
+  <div class="panel-footer" class="form-group">
+    <button type="submit"  class="btn btn-primary">Add Movie</button>
+  </div>
+</div>
+</form>

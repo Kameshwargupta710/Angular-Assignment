@@ -1,0 +1,89 @@
+<form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <br/>
+    <h3 class="panel-title">Add Product </h3>
+  </div> 
+  <div class="panel-body">
+    <div class="form-group">
+      <label>Product ID</label>
+      <input   type="number" class="form-control" formControlName="pid"  title="Only numbers are allowed" required>
+    </div>
+
+
+    
+    <div class="form-group">
+      <label>Product Name</label>
+      <input  type="text" class="form-control" formControlName="pname"  title="Only characters are allowed" required>
+    </div>
+    <div class="form-group">
+      <label>Product Cost</label>
+      <input   type="number" class="form-control" formControlName="pcost"  title="Only numbers are allowed" required>
+    </div>
+
+
+
+    <div class="form-group">
+      <label>Product Online</label>
+      <div class="form-control">
+      <label class="radio-inline">
+      <input    type="radio" formControlName="ponline" value="Yes"  required> &nbsp;Yes
+      </label>
+      &nbsp; &nbsp;
+      <label class="radio-inline">
+      <input   type="radio" formControlName="ponline" value="No" required> &nbsp;No
+      </label>
+      </div>
+    </div>
+    
+
+
+    <div class="form-group">
+      <label>Product Category</label>
+      <select id="category" formControlName="pcategory" class="form-control" required>
+        <option value="">Select Category</option>
+        <option value="Electronics">Electronics</option>
+        <option value="Cloths">Cloths</option>
+        <option value="Grocery">Grocery</option>
+        <option value="Mobile">Mobile</option>
+      </select>
+    </div>
+
+
+
+    <div class="form-group">
+      <label>Available in Store</label>
+      <div class="form-control">
+      <label class="checkbox-inline">
+      <input   type="checkbox" formControlName="pstore" value="Big Bazar"  required> &nbsp;Big Bazar
+      </label>
+      &nbsp; &nbsp;
+      <label class="checkbox-inline">
+      <input  type="checkbox" formControlName="pstore" value="DMart"  required> &nbsp;DMart
+      </label>
+      &nbsp; &nbsp;
+      <label class="checkbox-inline">
+      <input    type="checkbox" formControlName="pstore" value="Reliance"  required> &nbsp;Reliance
+      </label>
+      &nbsp; &nbsp;
+      <label class="checkbox-inline">
+      <input   type="checkbox" formControlName="pstore" value="Mega store"  required> &nbsp;Mega store
+      </label>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="panel-footer" class="form-group">
+    <button type="submit"  class="btn btn-primary">Add Product</button>
+  </div>
+</div>
+</form>
+
+
+
+
+
+
+
+

@@ -1,0 +1,16 @@
+<table border="2">
+  <tr>
+  <th>Book ID</th>
+  <th>Book Title</th>
+  <th>Book Author</th>
+  <th>Book Year of Publish</th>
+  </tr>
+  <tr *ngFor="let book of datalist">
+    <td>{{book.id}}</td>
+    <td>{{book.bookTitle}}</td>
+    <td>{{book.bookAuther}}</td>
+    <td>{{book.yearOfpublish}}</td>
+  </tr>
+</table>
+
+

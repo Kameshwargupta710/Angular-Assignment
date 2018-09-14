@@ -1,0 +1,22 @@
+<table border="2">
+  <tr>
+  <th>Book ID</th>
+  <th>Book Title</th>
+  <th>Book Author</th>
+  <th>Book Year of Publish</th>
+  </tr>
+  <tr>
+  <th><input type="text" placeholder="Id" [(ngModel)]='idFilter'></th>
+  <th><input type="text" placeholder="Title" [(ngModel)]='titleFilter'></th>
+  <th><input type="text" placeholder="Author" [(ngModel)]='authorFilter'></th>
+  <th><input type="text" placeholder="Book Year of Publish" [(ngModel)]='yearFilter'></th>
+  </tr>
+  <tr *ngFor="let book of datalist |productFilterId:idFilter|productFilterName:titleFilter|productFilterAuthor:authorFilter|productFilterYear:yearFilter">
+    <td>{{book.id}}</td>
+    <td>{{book.bookTitle}}</td>
+    <td>{{book.bookAuther}}</td>
+    <td>{{book.yearOfpublish}}</td>
+  </tr>
+</table>
+
+
